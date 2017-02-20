@@ -1,6 +1,8 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
+    <router-link to='hello'>hello组件</router-link>
+    <router-link to='vuxtest'>vuxTest 组件</router-link>
     <router-view></router-view>
   </div>
 </template>
@@ -11,7 +13,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang='less'>
+@import '~vux/src/styles/reset.less';
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
