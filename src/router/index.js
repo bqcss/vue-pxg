@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Hello from 'components/Hello'
 import VuxTest from 'components/vuxTest'
-import axiosTest from 'components/axiosTest'
+import axiosTest from 'components/axiosTest2'
 
 Vue.use(Router)
 
