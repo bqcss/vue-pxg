@@ -4,6 +4,7 @@
     <router-link to='hello'>hello组件</router-link>
     <router-link to='vuxtest'>vuxTest 组件</router-link>
     <router-link to='axiostest'>axiosTest 组件</router-link>
+    <router-link to='vuextest'>vuexTest 组件</router-link>
 
     <router-view></router-view>
   </div>
