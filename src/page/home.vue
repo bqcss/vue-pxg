@@ -12,8 +12,14 @@
           </flexbox-item>
         </flexbox>
       </group>
-      <!-- 特价类 -->
-
+      <!-- 新闻类向上滚动消息 -->
+      <group>
+      <cell :title="快报">
+        <marquee>
+          <marquee-item v-for="nes of domeNes">{{ nes}}</marquee-item>
+        </marquee>
+      </cell>
+    </group>
       <!-- 列表类 -->
       <group>
       <divider>热销爆款</divider>
@@ -36,7 +42,7 @@
 </template>
 
 <script>
-import { Swiper,SwiperItem,Card, Flexbox ,FlexboxItem,Divider,Group,Scroller  } from 'vux'
+import { Swiper,SwiperItem,Card, Flexbox ,FlexboxItem,Divider,Group,Scroller,Marquee, MarqueeItem   } from 'vux'
 const demoList = [{
   url: 'javascript:',
   img: 'https://static.vux.li/demo/1.jpg',
@@ -50,6 +56,13 @@ const demoList = [{
   img: 'https://static.vux.li/demo/3.jpg',
   title: '这是个标题33333333333333'
 }]
+
+const domeNes=[
+  '我是新闻消息啊啊啊啊啊啊啊啊',
+  '新闻消息66666666',
+  '我是新闻消息555555555555',
+  '我闻消息啊啊啊啊啊啊啊啊是的房间顺利开发建设了封建势力对抗肌肤的',
+]
 
 const b_Items=[
     {
@@ -83,11 +96,12 @@ export default {
   data(){
     return {
      demoList,
-     b_Items
+     b_Items,
+     domeNes
     }
   },
   components:{
-   Swiper,SwiperItem,Card, Flexbox ,FlexboxItem,Divider,Group,Scroller
+   Swiper,SwiperItem,Card, Flexbox ,FlexboxItem,Divider,Group,Scroller,Marquee, MarqueeItem 
   }
 
 }

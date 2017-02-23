@@ -1,6 +1,6 @@
 <template>
   <div style="height:100%;" id="app">
-      <view-box ref="viewBox" body-padding-top="46px" body-padding-bottom="55px">
+      <view-box ref="viewBox">
         <!-- 头部 -->
         <x-header  :left-options="{showBack: false}" ><a slot="left"><span class="demo-icon-22" style="color:#fff">&#xe633;</span>图标</a> 我是首页，欢迎你 <a slot="right">右边</a></x-header>
         <!-- 使用转换 -->
@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import { ButtonTab, ButtonTabItem, ViewBox, XHeader, Tabbar, TabbarItem } from 'vux'
+import { ButtonTab, ButtonTabItem, ViewBox, XHeader, Tabbar, TabbarItem} from 'vux'
 export default {
     components: {
       ButtonTab,
