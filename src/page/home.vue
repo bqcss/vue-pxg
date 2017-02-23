@@ -14,12 +14,30 @@
       </group>
       <!-- 新闻类向上滚动消息 -->
       <group>
-      <cell :title="快报">
+      <cell title="快报">
         <marquee>
           <marquee-item v-for="nes of domeNes">{{ nes}}</marquee-item>
         </marquee>
       </cell>
     </group>
+      <!-- 促销类 -->
+      <group>
+        <flexbox>
+          <flexbox-item style='border-right:1px solid'>
+            <a href="###"><img src="https://m.360buyimg.com/mobilecms/jfs/t3949/131/2586696231/42355/fdaa4df1/58ab9d8bNb8f76fe9.jpg!q70.jpg" width="100%" alt=""></a>
+          </flexbox-item>
+          <flexbox-item style='background:pink' direction='column' >
+                <flexbox direction='row' style='border-bottom:1px solid' > 
+                    <flexbox-item style='background:green;border-right:1px solid;line-height:50px'> 第一个图</flexbox-item>
+                    <flexbox-item> 第二个图</flexbox-item>
+                </flexbox>
+                <flexbox>
+                  最后一个
+                </flexbox>
+          </flexbox-item>
+        </flexbox>
+      </group>
+      <!--  -->
       <!-- 列表类 -->
       <group>
       <divider>热销爆款</divider>
@@ -42,7 +60,7 @@
 </template>
 
 <script>
-import { Swiper,SwiperItem,Card, Flexbox ,FlexboxItem,Divider,Group,Scroller,Marquee, MarqueeItem   } from 'vux'
+import { Swiper,SwiperItem,Card, Cell,Flexbox ,FlexboxItem,Divider,Group,Scroller,Marquee, MarqueeItem   } from 'vux'
 const demoList = [{
   url: 'javascript:',
   img: 'https://static.vux.li/demo/1.jpg',
@@ -101,7 +119,7 @@ export default {
     }
   },
   components:{
-   Swiper,SwiperItem,Card, Flexbox ,FlexboxItem,Divider,Group,Scroller,Marquee, MarqueeItem 
+   Swiper,SwiperItem,Card,Cell, Flexbox ,FlexboxItem,Divider,Group,Scroller,Marquee, MarqueeItem 
   }
 
 }

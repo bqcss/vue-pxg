@@ -9,15 +9,15 @@
         </transition>
         <!-- 底部bar -->
         <tabbar class="vux-demo-tabbar" icon-class="vux-center"  sloleft="bottom">
-          <tabbar-item>
+          <tabbar-item link='/'>
             <span class="demo-icon-22 vux-demo-tabbar-icon-home" slot="icon" style="position:relative;top: -2px;">&#xe637;</span>
             <span slot="label">首页</span>
           </tabbar-item>
-          <tabbar-item >
+          <tabbar-item link='/Lists'>
               <span class="demo-icon-22" slot="icon">&#xe633;</span>
               <span slot="label"><span>分类</span></span>
             </tabbar-item>
-          <tabbar-item>
+          <tabbar-item link='/List'>
               <span class="demo-icon-22" slot="icon">&#xe630;</span>
               <span slot="label">食谱</span>
           </tabbar-item>
@@ -58,6 +58,9 @@ export default {
 
 body {
   background-color: #fbf9fe;
+}
+img{
+  max-width: 100%;
 }
 html, body {
   height: 100%;
