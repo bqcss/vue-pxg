@@ -21,7 +21,7 @@
               <span class="demo-icon-22" slot="icon">&#xe630;</span>
               <span slot="label">食谱</span>
           </tabbar-item>
-          <tabbar-item badge="9">
+          <tabbar-item badge="9" link='/sw'>
               <span class="demo-icon-22" slot="icon">&#xe633;</span>
               <span slot="label"><span>购物车</span></span>
             </tabbar-item>

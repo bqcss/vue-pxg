@@ -1,85 +1,137 @@
 <template>
+ <scroller lock-x scrollbar-y  @on-scroll="onScroll" use-pullup @on-pullup-loading="loadMore" ref="scroller" :pulldownConfig="myfig">
     <div>
-    <h3>他们公用一个头部</h3>
-    <div>
-       <router-link :to='{name:"Listinfo"}'>我是默认</router-link>
-      <router-link :to='{name:"LLists"}'>我是另一个</router-link>
-      <h2>User {{ $route.params.id }}</h2>
+    <h3>scrollTop:{{scrollTop}}</h3>
+      <label><input type="checkbox"  v-model="styleObj.Style" >{{styleObj.Style?"竖排":"横排"}}</label>
+      <v-items :Lists='listsItems' :vvshow='styleObj.Style?"vertical":""' :Cs='styleObj.Style'></v-items>
+      <h3>另一种排版</h3>
+      <!-- <h-items :Lists='listsItems' ></h-items> -->
+      <p style="text-align:center" v-for='i in nn'>新增加了{{i}}个</p>
     </div>
-      <router-view></router-view>
-    </div>
+    </scroller>
 </template>
 
 <script>
-import {Flexbox,FlexboxItem} from 'vux'
+import {Scroller} from 'vux'
+import HItems from '../components/HItems'
+import VItems from '../components/VItems'
 const listsItems=[
     {
-      url: 'javascript:',
+      href: 'javascript:',
+      tag:'买一送一',
+      title:'主要标题',
+      subTitle:'小标题小标题小标题小标题小标题小标题',
+      price:40,
+      subPrice:50,
       img: 'https://m.360buyimg.com/mobilecms/s80x80_jfs/t3664/66/52394080/14046/acfe1fa3/57fdae81Ne7ddbab9.png',
-      ti: '小鲜肉'
-    },
-    {
-      url: 'javascript:',
+      ti: '小鲜肉',
+    },    {
+      href: 'javascript:',
+      tag:'买一送一',
+      title:'主要标题',
+      subTitle:'小标题小标题小标题小标题小标题小标题',
+      price:40,
+      subPrice:50,
+      img: 'https://m.360buyimg.com/mobilecms/s80x80_jfs/t3664/66/52394080/14046/acfe1fa3/57fdae81Ne7ddbab9.png',
+      ti: '小鲜肉',
+    },    {
+      href: 'javascript:',
+      tag:'买一送一',
+      title:'主要标题',
+      subTitle:'小标题小标题小标题小标题小标题小标题',
+      price:40,
+      subPrice:50,
+      img: 'https://m.360buyimg.com/mobilecms/s80x80_jfs/t3664/66/52394080/14046/acfe1fa3/57fdae81Ne7ddbab9.png',
+      ti: '小鲜肉',
+    },    {
+      href: 'javascript:',
+      tag:'买一送一',
+      title:'主要标题',
+      subTitle:'小标题小标题小标题小标题小标题小标题',
+      price:40,
+      subPrice:50,
+      img: 'https://m.360buyimg.com/mobilecms/s80x80_jfs/t3664/66/52394080/14046/acfe1fa3/57fdae81Ne7ddbab9.png',
+      ti: '小鲜肉',
+    },    {
+      href: 'javascript:',
+      tag:'买一送一',
+      title:'主要标题',
+      subTitle:'小标题小标题小标题小标题小标题小标题',
+      price:40,
+      subPrice:50,
+      img: 'https://m.360buyimg.com/mobilecms/s80x80_jfs/t3664/66/52394080/14046/acfe1fa3/57fdae81Ne7ddbab9.png',
+      ti: '小鲜肉',
+    },    {
+      href: 'javascript:',
+      tag:'买一送一',
+      title:'主要标题',
+      subTitle:'小标题小标题小标题小标题小标题小标题',
+      price:40,
+      subPrice:50,
+      img: 'https://m.360buyimg.com/mobilecms/s80x80_jfs/t3664/66/52394080/14046/acfe1fa3/57fdae81Ne7ddbab9.png',
+      ti: '小鲜肉',
+    },    {
+      href: 'javascript:',
+      tag:'买一送一',
+      title:'主要标题',
+      subTitle:'小标题小标题小标题小标题小标题小标题',
+      price:40,
+      subPrice:50,
       img: 'https://m.360buyimg.com/mobilecms/s80x80_jfs/t4042/144/2524267687/15532/439bc863/58aae9ccN543da263.png',
-      ti: '老腊肉'
-    },
-    {
-      url: 'javascript:',
-      img: 'https://m.360buyimg.com/mobilecms/s80x80_jfs/t3211/295/1824792746/12749/a74e2524/57d543ebN25337ef2.png',
-      ti: '水果'
-    },
-    {
-      url: 'javascript:',
-      img: 'https://m.360buyimg.com/mobilecms/s80x80_jfs/t3664/66/52394080/14046/acfe1fa3/57fdae81Ne7ddbab9.png',
-      ti: '生鲜'
-    },
-    {
-      url: 'javascript:',
-      img: 'https://m.360buyimg.com/mobilecms/s80x80_jfs/t3118/92/1836879034/12255/981e942a/57d54204N32b71c87.png',
-      ti: '电器'
-    },
-    {
-      url: 'javascript:',
-      img: 'https://m.360buyimg.com/mobilecms/s80x80_jfs/t3664/66/52394080/14046/acfe1fa3/57fdae81Ne7ddbab9.png',
-      ti: '生活用品'
-    },
-    {
-      url: 'javascript:',
-      img: 'https://m.360buyimg.com/mobilecms/s80x80_jfs/t4042/144/2524267687/15532/439bc863/58aae9ccN543da263.png',
-      ti: '老腊肉'
-    },
-    {
-      url: 'javascript:',
-      img: 'https://m.360buyimg.com/mobilecms/s80x80_jfs/t3211/295/1824792746/12749/a74e2524/57d543ebN25337ef2.png',
-      ti: '水果'
-    },
-    {
-      url: 'javascript:',
-      img: 'https://m.360buyimg.com/mobilecms/s80x80_jfs/t3664/66/52394080/14046/acfe1fa3/57fdae81Ne7ddbab9.png',
-      ti: '生鲜'
-    },
-    {
-      url: 'javascript:',
-      img: 'https://m.360buyimg.com/mobilecms/s80x80_jfs/t3118/92/1836879034/12255/981e942a/57d54204N32b71c87.png',
-      ti: '电器'
-    },
+      ti: '小鲜肉',
+    }
 ]
 
+const styleObj={
+  Style:true
+}
+const myfig={
+  content: '怎么都没用啊',
+          pullUpHeight: 60,
+          height: 40,
+          autoRefresh: false,
+          downContent: '放下才能刷新啊',
+          upContent: '使劲。。。。。。。。。。',
+          loadingContent: '老子在努力加载中...',
+}
 export default {
   data(){
     return {
-      listsItems
+      listsItems,
+      styleObj,
+      scrollTop:0,
+      nn:0,
+      myfig
     }
   },
   components:{
-    Flexbox,FlexboxItem
+    HItems,VItems,Scroller
+  },
+  methods: {
+    onScroll (pos) {
+      this.scrollTop = pos.top
+    },
+  loadMore() {
+      setTimeout(() => {
+        this.nn += 10
+        this.$nextTick(() => {
+          this.$refs.scroller.donePullup()
+          // if (this.nn >= 30) {
+          //   this.$refs.scroller1.disablePullup()
+          //   console.log('No more data, Pullup disabled!')
+          // }
+        })
+      }, 2000)
+    }
   }
+
 
 }
 </script>
-<style lang="scss" >
-  img.w50{
-    width: 50%;
-    max-width: 90px;
-  }
+<style lang="scss" scoped>
+.pullup-arrow {
+  transition: all linear 0.2s;
+  color: #666;
+  font-size: 25px;
+}
 </style>
