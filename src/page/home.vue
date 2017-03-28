@@ -27,7 +27,7 @@
             <a href="###"><img src="https://m.360buyimg.com/mobilecms/jfs/t3949/131/2586696231/42355/fdaa4df1/58ab9d8bNb8f76fe9.jpg!q70.jpg" width="100%" alt=""></a>
           </flexbox-item>
           <flexbox-item style='background:pink' direction='column' >
-                <flexbox direction='row' style='border-bottom:1px solid' > 
+                <flexbox direction='row' style='border-bottom:1px solid' >
                     <flexbox-item style='background:green;border-right:1px solid;line-height:50px'> 第一个图</flexbox-item>
                     <flexbox-item> 第二个图</flexbox-item>
                 </flexbox>
@@ -42,7 +42,7 @@
       <group>
       <divider>热销爆款</divider>
        <img src="//st.360buyimg.com/m/images/index/floor-tit.png" alt="">
-      <scroller lock-y scrollbar-x>
+      <scroller scrollbar-x height='120px' lock-y>
         <div class="box">
           <div class="box-item" v-for="i in 7"><span>{{' ' + i + ' '}}</span></div>
         </div>
@@ -119,7 +119,7 @@ export default {
     }
   },
   components:{
-   Swiper,SwiperItem,Card,Cell, Flexbox ,FlexboxItem,Divider,Group,Scroller,Marquee, MarqueeItem 
+   Swiper,SwiperItem,Card,Cell, Flexbox ,FlexboxItem,Divider,Group,Scroller,Marquee, MarqueeItem
   }
 
 }

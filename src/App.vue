@@ -1,9 +1,36 @@
 <template>
   <div style="height:100%;" id="app">
+      <!-- 左边的地址选择 -->
+      <transition name='vux-pop-out'>
+        <fullpage v-if='iShow'>
+          <a @click='iShow=!iShow'> 返回</a>
+          <div style="color:#333">
+            这下面是地址选择
+          </div>
+        </fullpage>
+      </transition>
+      <!-- 地址选择 -->
+<!--       <tab :line-width=2 active-color='#fc378c' v-model="index">
+        <tab-item class="vux-center" :selected="demo2 === item" v-for="(item, index) in list2" @click="demo2 = item" :key="index">{{item}}</tab-item>
+      </tab>
+      <swiper v-model="index" height="100px" :show-dots="false">
+        <swiper-item v-for="(item, index) in list2" :key="index">
+          <div class="tab-swiper vux-center" >{{item}} Container</div>
+        </swiper-item>
+      </swiper>
+      
+
+ -->
       <view-box ref="viewBox">
         <!-- 头部 -->
-        <x-header  :left-options="{showBack: false}" ><a slot="left"><span class="demo-icon-22" style="color:#fff">&#xe633;</span>图标</a> 我是首页，欢迎你 <a slot="right">右边</a></x-header>
+        <x-header  :left-options="{showBack: false}" >
+        <a slot="left" @click='iShow=!iShow'><span class="iconfont icon-dizhi "></span><span class="">上海</span></a> 
+          pxg logo
+         <a slot="right"><span class="iconfont icon-sousuo"></span></a>
+
+        </x-header>
         <!-- 使用转换 -->
+         <search-bar></search-bar>
          <transition :name='"vux-pop-in"'>
           <router-view class="router-view"></router-view>
         </transition>
@@ -37,17 +64,30 @@
 </template>
 
 <script>
-import { ButtonTab, ButtonTabItem, ViewBox, XHeader, Tabbar, TabbarItem} from 'vux'
+import { ButtonTab, ButtonTabItem, ViewBox, XHeader, Tabbar, TabbarItem,Search,Tab, TabItem, Sticky, SwiperItem} from 'vux';
+import fullpage from 'components/fullpage';
+import searchBar from 'components/searchBar';
+// const list = () => ['精选', '美食', '电影', '酒店', '外卖']
 export default {
+    data(){
+      return{
+        iShow:false,
+        iShowSearch:true,
+        index:0,
+        list2:['精选', '美食', '电影', '酒店', '外卖','aaa','bbb','ccc'],
+      }
+    },
     components: {
       ButtonTab,
       ButtonTabItem,
       ViewBox,
       XHeader,
       Tabbar,
-      TabbarItem
+      TabbarItem,
+      fullpage,searchBar,
+      Search,
+      Tab, TabItem, Sticky, SwiperItem
     },
- 
 }
 </script>
 
@@ -55,6 +95,16 @@ export default {
 @import '~vux/src/styles/reset.less';
 @import '~vux/src/styles/1px.less';
 @import '~vux/src/styles/tap.less';
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-active {
+  transform: translateX(10px);
+  opacity: 0;
+}
 
 body {
   background-color: #fbf9fe;
@@ -188,4 +238,8 @@ html, body {
     transform: translate3d(100%, 0, 0);
   }
 }
+</style>
+<style lang="scss">
+  @import '../src/assets/scss/main.scss';
+  @import '../src/assets/icon/icon.scss';
 </style>

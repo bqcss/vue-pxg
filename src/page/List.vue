@@ -1,5 +1,5 @@
 <template>
- <scroller lock-x scrollbar-y  @on-scroll="onScroll" use-pullup @on-pullup-loading="loadMore" ref="scroller" :pulldownConfig="myfig">
+ <scroller lock-x scrollbar-y  @on-scroll="onScroll" use-pulldown use-pullup @on-pullup-loading="loadMore" ref="scroller" :pulldown-config="myfig">
     <div>
     <h3>scrollTop:{{scrollTop}}</h3>
       <label><input type="checkbox"  v-model="styleObj.Style" >{{styleObj.Style?"竖排":"横排"}}</label>
@@ -86,7 +86,7 @@ const styleObj={
   Style:true
 }
 const myfig={
-  content: '怎么都没用啊',
+        content: '怎么都没用啊',
           pullUpHeight: 60,
           height: 40,
           autoRefresh: false,
