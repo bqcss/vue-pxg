@@ -1,5 +1,8 @@
 <template>
   <div>
+
+    <!--<h2> hout {{ind}} </h2>-->
+    <!--<h2 v-for="i in ind"> hout {{i}} </h2>-->
     <swiper loop auto :list="demoList" ></swiper>
       <!-- 条目分离 -->
       <group>
@@ -24,7 +27,10 @@
       <group>
         <flexbox>
           <flexbox-item style='border-right:1px solid'>
-            <a href="###"><img src="https://m.360buyimg.com/mobilecms/jfs/t3949/131/2586696231/42355/fdaa4df1/58ab9d8bNb8f76fe9.jpg!q70.jpg" width="100%" alt=""></a>
+            <router-link to="/info/1">
+              <a><img src="https://m.360buyimg.com/mobilecms/jfs/t3949/131/2586696231/42355/fdaa4df1/58ab9d8bNb8f76fe9.jpg!q70.jpg" width="100%" alt=""></a>
+            </router-link>
+
           </flexbox-item>
           <flexbox-item style='background:pink' direction='column' >
                 <flexbox direction='row' style='border-bottom:1px solid' >
@@ -120,9 +126,22 @@ export default {
   },
   components:{
    Swiper,SwiperItem,Card,Cell, Flexbox ,FlexboxItem,Divider,Group,Scroller,Marquee, MarqueeItem
+  },
+  created(){
+  this.$store.dispatch('getHomeIndex');
+
+  },
+  computed:{
+//    myti(){
+//      return this.$store.state.comm.myTitle+'dd'
+//    },
+    ind(){
+      return this.$store.getters.getHomeIndex;
+    }
   }
 
 }
+
 </script>
 <style lang="scss">
   .tc{

@@ -1,6 +1,7 @@
 <template>
   <div>
     <h2>我想做成类似app界面的小图标</h2>
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/97134045293255.582bd3e03c37d.jpg" alt="">
       <flexbox wrap="wrap" :gutter='0' style='text-align:center;'>
         <flexbox-item v-for='icon of listsItems' :span='1/4'>
         <router-link to='/List'>
